@@ -152,8 +152,24 @@ int main(int argc, char** argv)
                 current_task_status = follow_curve(curve_ptr);
                 if (current_task_status.finished)
                 {
-                    phase = 20;
+                    phase = 12;
                     std::cout << "target 6 reached" << std::endl;
+                }
+                break;
+
+            case 12:
+                curve_ptr = (curve*)malloc(sizeof(curve));
+                create_curve(curve_ptr, create_target(1250, 750, 0));
+
+                phase = 13;
+                break;
+
+            case 13:
+                current_task_status = follow_curve(curve_ptr);
+                if (current_task_status.finished)
+                {
+                    phase = 20;
+                    std::cout << "target 7 reached" << std::endl;
                 }
                 break;
 
